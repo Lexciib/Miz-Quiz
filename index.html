@@ -1,0 +1,171 @@
+<!--
+Group Members: Tichina Buckle (1801448), Rashieka Williams (2002375), x,
+Teacher: Christine Maxwell Anuli
+Description: Web Programming Group Assessment
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="maths-add-pngrepo-com.png" type="image/png">
+    <link rel="stylesheet" href="index.css">
+    <title>Math Game Index</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Multiplication 4 Kids</h1>
+            <p>A web-based Maths Game to assist kids between ages 8 and 12 to learn multiplication.</p>
+        </div>
+    </header>
+
+    <!--Task 1 -->
+    <!--
+        Create a new HTML page called index.html. There is to be a form on the web page with the following
+        fields for entering information on each player: First Name, Last Name, DOB, Age, and Gender.
+            i) All fields are required to have the correct entry value.
+            j) All fields are required to have a unique id.
+            ii) Age must be calculated by the system from date of birth and must be between 8 and 12
+            inclusive.
+            iii) First and Last Names must be more than three (3) characters in length.
+            iv) Email address must be validated to only accept email addresses that ends with
+            “@gmail.com”.
+            v) All validations are to be done via HTML tag attributes
+    -->
+    <div class="viewp">
+        <h2>Registration</h2>
+        <form id="RegistrationForm">
+            <div>
+                <label>First Name:</label>
+                <input type="text" id="fname" minlength="3" required>
+                <br><br>
+            </div>
+
+            <div>
+                <label>Last Name:</label>
+                <input type="text" id="lname" minlength="3" required>
+                <br><br>
+            </div>
+
+            <div>
+                <label>Date-Of-Birth:</label>
+                <input type="date" id="dob" required onblur="Age()">
+                <br><br>
+            </div>
+
+            <div>
+                <label>Age:</label>
+                <input type="number" id="age" min="8" max="12" required>
+                <br><br>
+            </div>
+
+            <div>
+                <label>Gender:</label>
+                <input type="radio" id="genderM" name="gender" value="Male" required>
+                <label for="genderM">Male</label>
+                <input type="radio" id="genderF" name="gender" value="Female" required>
+                <label for="genderF">Female</label>
+                <input type="radio" id="genderO" name="gender" value="Other" required>
+                <label for="genderO">Other</label>
+                <br><br>
+            </div>
+
+            <div>
+                <label>Parent/Guardian Email:</label>
+                <input class="textput" type="email" id="email" pattern="^[a-zA-Z0-9]+@gmail\.com$" placeholder="abc@gmail.com" required>
+                <br><br>
+            </div>
+
+            <div>
+                <!--Task 3 -->
+                <input id="register_button" type="button" value="Register" onclick="Register()">
+                <br><br>
+            </div>
+            <hr>
+            <br><br>
+
+
+        </form>
+
+    </div>
+
+
+    <!--Game Buttons-->
+    <div class="viewp" id="gamecontainer">
+        <div class="gamepannel">
+            <!--Task 5-->
+            <h1>Multiplication Game <span>Let Us Begin :)</span></h1>
+
+            <input id="start_button" type="button" value="Start" onclick="PlayGame();">
+            
+            <div class="main-box">
+                <div class="show-answer"><span id="ans"></span></div>
+
+                <div class="box-1">
+                    <div class="box-col">
+                        <input type="number" id="userAnswer" class="tex1">
+                        <span id="randNum1"></span>
+                    </div>
+                    <div class="multiply">
+                        <p>x</p>
+                    </div>
+
+                    <div class="box-col">
+                        <input type="number" id="userAnswer" class="tex1">
+                        <span id="randNum2"></span>
+                    </div>
+                </div>
+
+            <div class="box-2">
+                <input type="number" id="userAns" name="tex2">
+            </div>
+
+                <!--Task 7-->
+            <div class="box-2">
+                <input id="accept_button" type="button" value="Accept" disabled onclick="CheckAnswer();">
+            </div>
+            </div>
+            <!--Task 8-->
+            <input id="next_button" type="button" value="Next" onclick="PlayGame();">
+            <!--Task 11-->
+            <input id="end_button" type="button" value="End" onclick="findPercentageScore(); endAll();">
+            <!--Task 16-->
+            <input id="percentage_button" type="button" value="Percentage" onclick="percentage_button();">
+            <br><br>
+            <div id="percentageoutput"></div>
+        </div>
+        </div>
+    </div>
+
+    <div class="viewp">
+
+        <div>
+            <!--Task 9 must call upon func findPercentageScore()-->
+            <label>Scoreboard</label>
+            <br>
+            <textarea id="showpercentage"> </textarea>
+        </div>
+
+        <div>
+            <!--Task 12-->
+            <label>List of All Entered Persons</label>
+            <br>
+            <textarea id="showallplayers"> </textarea>
+        </div>
+    </div>
+
+
+    <audio src="correctAnswer.mp3" preload="auto"></audio>
+</body>
+
+<script src="index.js"></script>
+
+</html>
