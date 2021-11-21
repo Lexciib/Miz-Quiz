@@ -1,8 +1,3 @@
-
-function ResetButton() {
-    document.getElementById("RegistrationForm").reset();
-}
-
 //Task 2
 let PlayersData = []
 
@@ -392,8 +387,6 @@ let viewp_switch = {
         document.getElementById('resultsarepain').style.display = "block"
     }
 }
-
-
 
 viewp_switch.registrationpain()
 
