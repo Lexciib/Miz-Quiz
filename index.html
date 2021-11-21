@@ -1,5 +1,5 @@
 <!--
-Group Members: Tichina Buckle (1801448), Rashieka Williams (2002375), x,
+Group Members: Tichina Buckle (1801448), Rashieka Williams (2002375), Damary Patterson (2001463), Richard Pinnock (1903251)
 Teacher: Christine Maxwell Anuli
 Description: Web Programming Group Assessment
 -->
@@ -20,12 +20,7 @@ Description: Web Programming Group Assessment
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>Multiplication 4 Kids</h1>
-            <p>A web-based Maths Game to assist kids between ages 8 and 12 to learn multiplication.</p>
-        </div>
-    </header>
+
 
     <!--Task 1 -->
     <!--
@@ -40,7 +35,14 @@ Description: Web Programming Group Assessment
             “@gmail.com”.
             v) All validations are to be done via HTML tag attributes
     -->
-    <div class="viewp">
+    <div class="viewp" id="registrationpain">
+        <header>
+            <div class="container">
+                <h1>Miz Wiz Multiplication Game</h1>
+                <p>A web-based Maths Game to assist kids between ages 8 and 12 to learn multiplication.</p>
+            </div>
+        </header>
+        <br>
         <h2>Registration</h2>
         <form id="RegistrationForm">
             <div>
@@ -80,7 +82,8 @@ Description: Web Programming Group Assessment
 
             <div>
                 <label>Parent/Guardian Email:</label>
-                <input class="textput" type="email" id="email" pattern="^[a-zA-Z0-9]+@gmail\.com$" placeholder="abc@gmail.com" required>
+                <input class="textput" type="email" id="email" pattern="^[a-zA-Z0-9]+@gmail\.com$"
+                    placeholder="abc@gmail.com" required>
                 <br><br>
             </div>
 
@@ -102,16 +105,19 @@ Description: Web Programming Group Assessment
     <div class="viewp" id="gamecontainer">
         <div class="gamepannel">
             <!--Task 5-->
-            <h1>Multiplication Game <span>Let Us Begin :)</span></h1>
+            <h1>Miz Wiz Multiplication Game</h1><br>
+            <h1>Let Us Begin :)</h1>
 
-            <input id="start_button" type="button" value="Start" onclick="PlayGame();">
-            
+
+
             <div class="main-box">
-                <div class="show-answer"><span id="ans"></span></div>
+
+                <button id="startbutton" onclick="PlayGame();">Start Game</button><br>
+                <div class="show-answer"><span id="msg"></span></div>
 
                 <div class="box-1">
                     <div class="box-col">
-                        <input type="number" id="userAnswer" class="tex1">
+                        <input type="text" id="a" disabled class="tex1">
                         <span id="randNum1"></span>
                     </div>
                     <div class="multiply">
@@ -119,47 +125,99 @@ Description: Web Programming Group Assessment
                     </div>
 
                     <div class="box-col">
-                        <input type="number" id="userAnswer" class="tex1">
+                        <input type="text" id="b" disabled class="tex1">
                         <span id="randNum2"></span>
                     </div>
                 </div>
 
-            <div class="box-2">
-                <input type="number" id="userAns" name="tex2">
-            </div>
+                <div class="box-2">
+                    <input type="number" id="userAnswer" name="tex2">
+                </div><br>
 
                 <!--Task 7-->
-            <div class="box-2">
-                <input id="accept_button" type="button" value="Accept" disabled onclick="CheckAnswer();">
+                <div class="box-2">
+                    <input id="accept_button" type="button" value="Check" disabled onclick="CheckAnswer();">
+                </div><br>
+
+                <!--Task 8-->
+                <input id="next_button" type="button" value="Next" onclick="PlayGame();"><br>
+                <!--Task 11-->
+                <input id="end_button" type="button" value="End" onclick=" showAll();findPercentageScore();"><br>
+                <!--Task 16-->
+                <input id="percentage_button" type="button" value="Percentage" onclick="findPercentage();"><br>
+
             </div>
-            </div>
-            <!--Task 8-->
-            <input id="next_button" type="button" value="Next" onclick="PlayGame();">
-            <!--Task 11-->
-            <input id="end_button" type="button" value="End" onclick="findPercentageScore(); endAll();">
-            <!--Task 16-->
-            <input id="percentage_button" type="button" value="Percentage" onclick="percentage_button();">
+
             <br><br>
             <div id="percentageoutput"></div>
         </div>
-        </div>
+    </div>
     </div>
 
-    <div class="viewp">
+    <div class="viewp" id="resultsarepain">
 
         <div>
             <!--Task 9 must call upon func findPercentageScore()-->
-            <label>Scoreboard</label>
-            <br>
-            <textarea id="showpercentage"> </textarea>
+            <!--<label>Scoreboard</label>-->
+            <!--<textarea id="showpercentage"> </textarea>-->
         </div>
 
         <div>
             <!--Task 12-->
             <label>List of All Entered Persons</label>
             <br>
-            <textarea id="showallplayers"> </textarea>
+            <table id="showallplayers">
+
+            </table>
         </div>
+
+        <h1>Gender Fx chart</h1>
+        <div class="freqchart" id="male_female_chart">
+            <div class="freqbar" id="malebar">
+                <span class="freqbartxt" id="malebartxt">- </span>
+            </div>
+            <div class="freqbar" id="femalebar">
+                <span class="freqbartxt" id="femalebartxt">- </span>
+            </div>
+        </div>
+
+        <h1>Score Fx chart</h1>
+        <div class="freqchart" id="scores_chart">
+            
+            <div class="freqbar" id="under10perbar">
+                <span class="freqbartxt" id="under10pertxt">0 - 10% </span>
+            </div>
+            <div class="freqbar" id="under20perbar">
+                <span class="freqbartxt" id="under20pertxt">10 - 20% </span>
+            </div>
+            <div class="freqbar" id="under30perbar">
+                <span class="freqbartxt" id="under30pertxt">20 - 30% </span>
+            </div>
+            <div class="freqbar" id="under40perbar">
+                <span class="freqbartxt" id="under40pertxt">30 - 40% </span>
+            </div>
+            <div class="freqbar" id="under50perbar">
+                <span class="freqbartxt" id="under50pertxt">40 - 50% </span>
+            </div>
+            <div class="freqbar" id="under60perbar">
+                <span class="freqbartxt" id="under60pertxt">50 - 60% </span>
+            </div>
+            <div class="freqbar" id="under70perbar">
+                <span class="freqbartxt" id="under70pertxt">60 - 70% </span>
+            </div>
+            <div class="freqbar" id="under80perbar">
+                <span class="freqbartxt" id="under80pertxt">70 - 80% </span>
+            </div>
+            <div class="freqbar" id="under90perbar">
+                <span class="freqbartxt" id="under90pertxt">80 - 90% </span>
+            </div>
+            <div class="freqbar" id="under100perbar">
+                <span class="freqbartxt" id="under100pertxt">90 - 100% </span>
+            </div>
+        </div>
+
+        <br>
+        <button id="playagain">Play Again</button>
     </div>
 
 

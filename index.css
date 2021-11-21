@@ -7,13 +7,12 @@
 body {
     font-family: 'Luckiest Guy';
     background-color: #e6e6ea;
-    height: 100vh;
-    width: 100vw;
 }
 
 .viewp {
     height: 100vh;
     width: 100%;
+    box-sizing: border-box;
     display: block;
     padding: 0;
     margin: 0;
@@ -23,6 +22,12 @@ body {
     border-radius: 10px;
     /*top: 0;
     left: 0;*/
+}
+
+table{column-gap: 0rem;}
+td,th{
+    padding: 0.3rem;
+    border: 0.1rem solid black;
 }
 
 h1 {
@@ -46,6 +51,68 @@ header {
     height: fit-content;
     margin-left: 25vw;
     margin-right: 25vw;
+    border: 2px solid;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+}
+
+#register_button{
+    border-radius: 4px;
+    width: 150px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    height: 50px;
+    justify-content: center;
+    font-family: 'Luckiest Guy';
+    background-color: #83d6ef;
+    color: black;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+}
+
+#startbutton{
+    border-radius: 4px;
+    width: 200px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    height: 60px;
+    justify-content: center;
+    font-family: 'Luckiest Guy';
+    background-color: darkslategrey;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+}
+
+#accept_button, #next_button, #end_button{
+    border-radius: 4px;
+    width: 100px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    height: 50px;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Luckiest Guy';
+    background-color: darkslategrey;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+}
+
+#percentage_button, #playagain{
+    border-radius: 4px;
+    width: 250px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    height: 50px;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Luckiest Guy';
+    background-color: darkslategrey;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
 }
 
 .td{}
@@ -72,8 +139,8 @@ header {
 }
 
 .main-box{
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     background: #83d6ef;
@@ -121,7 +188,7 @@ header {
     font-size: 25px;
 }
 
-#userAns{
+#userAnswer{
     width: 180px;
     height: 35px;
     margin: 30px 0px;
@@ -132,4 +199,24 @@ header {
     border: none;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+
+/* Frequency chart */
+.freqchart{
+    width: 100%;
+    min-height: 200px;
+    height: fit-content;
+}
+
+.freqbar{
+display: flex;
+align-items: center;
+align-content: center;
+justify-content: center;
+height: 2rem;
+}
+
+.freqbartxt{
+    font-size: 1.3rem;
 }
