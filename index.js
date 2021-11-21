@@ -243,6 +243,11 @@ function showAll() {
 
 
 //Task 15
+
+setInterval(() => {
+    showfreq()
+}, 5000);
+
 function showfreq() {
     //frequency chart male / female
 
